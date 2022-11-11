@@ -17,10 +17,9 @@ function control(event) {
         checkBoxCount--
     }
     
-    if (checkBoxCount === 3) {
+    if (checkBoxCount === 2) {
         checkBoxCount--
         lastClickedElement.checked = false;
     }
     lastClickedElement = event.target;
 }
-console.log(control());
