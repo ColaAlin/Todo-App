@@ -1,3 +1,20 @@
+ const btnAddToDo = document.querySelector("#add");
+ const btnDelete = document.querySelector("#btn-delete");
+ 
+
+ btnAddToDo.addEventListener("click", addTodo);
+
+ function addTodo(event) {
+     event.preventDefault();
+ const todoField = document.querySelector("#todo");
+ const todo = todoField.value;
+ const listEl = document.createElement("li");
+ listEl.innerHTML= todo;
+ li.append(listEl);
+ todoField.value = "";
+ todoField.focus();
+ }
+
 let all = document.querySelector("#all");
 let open = document.querySelector("#open");
 let done = document.querySelector("#done");
@@ -23,20 +40,3 @@ function control(event) {
     }
     lastClickedElement = event.target;
 }
-
-
-const btnAddToDo = document.querySelector("#add");
-
-btnAddToDo.addEventListener("click", addTodo);
-
-function addTodo(event){
-const todoField = document.querySelector("#todo");
-const todo = todoField.value;
-//const list = document.querySelector('#list');
-const listEl = document.createElement("li");
-listEl.innerHTML= todo;
-li.append(listEl);
-todoField.value = "";
-todoField.focus();
-}
-
