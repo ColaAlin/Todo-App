@@ -23,3 +23,20 @@ function control(event) {
     }
     lastClickedElement = event.target;
 }
+
+
+const btnAddToDo = document.querySelector("#add");
+
+btnAddToDo.addEventListener("click", addTodo);
+
+function addTodo(event){
+const todoField = document.querySelector("#todo");
+const todo = todoField.value;
+//const list = document.querySelector('#list');
+const listEl = document.createElement("li");
+listEl.innerHTML= todo;
+li.append(listEl);
+todoField.value = "";
+todoField.focus();
+}
+
