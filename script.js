@@ -1,19 +1,10 @@
-//  const btnAddToDo = document.querySelector("#add");
-//  const btnDelete = document.querySelector("#btn-delete");
- 
+const addBtn = document.querySelector("#add");
 
-//  btnAddToDo.addEventListener("click", addTodo);
+addBtn.addEventListener("click", event => {
+    console.log(event.target);
+    event.preventDefault();
+});
 
-//  function addTodo(event) {
-//      event.preventDefault();
-//  const todoField = document.querySelector("#todo");
-//  const todo = todoField.value;
-//  const listEl = document.createElement("li");
-//  listEl.innerHTML= todo;
-//  li.append(listEl);
-//  todoField.value = "";
-//  todoField.focus();
-//  }
 
 
 
