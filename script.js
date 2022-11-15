@@ -14,6 +14,7 @@ function addTodo() {
   });
   input.value = "";
   input.focus();
+  render();
 }
 
 const addBtn = document.querySelector("#add");
@@ -39,7 +40,7 @@ function render() {
 // function delete
 
 function deleteInput() {
- // todos[0].done = true; // test dummy
+  // todos[0].done = true; // test dummy
   // über alle Elemente for schleife
   for (let i = 0; i < todos.length; i++) {
     // prüfen ob done === true, wenn ja splice() sonnst nichts tun
@@ -47,6 +48,7 @@ function deleteInput() {
       todos.splice(i, 1);
     }
   }
+  render();
 }
 
 // delete button erzeugen

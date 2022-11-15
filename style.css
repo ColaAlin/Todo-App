@@ -94,6 +94,7 @@ h2 {
 
 .todo {
   margin-right: 60px;
+  _background-color: red;
 }
 
 .flexbox {
@@ -104,10 +105,15 @@ h2 {
   flex-direction: column;
 }
 
-ul {
+.radio {
   list-style: none;
   font-size: 25px;
   margin-right: 165px;
+}
+
+.ul2 {
+  list-style: none;
+  background-color: red;
 }
 
 .round {
