@@ -37,6 +37,8 @@ function addTodo() {
     done: false,
     id: Date.now(),
   });
+    input.value = "";
+    input.focus();
 }
 
 const addBtn = document.querySelector("#add");
