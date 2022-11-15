@@ -118,3 +118,7 @@ ul {
   border: none;
 }
 
+p {
+  display: none;
+  text-decoration: line-through;
+}

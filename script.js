@@ -1,28 +1,3 @@
-let all = document.querySelector("#all");
-let open = document.querySelector("#open");
-let done = document.querySelector("#done");
-
-all.addEventListener("click", control);
-open.addEventListener("click", control);
-done.addEventListener("click", control);
-
-let checkBoxCount = 0;
-
-let lastClickedElement;
-
-function control(event) {
-  if (event.target.checked) {
-    checkBoxCount++;
-  } else {
-    checkBoxCount--;
-  }
-  if (checkBoxCount === 2) {
-    checkBoxCount--;
-    lastClickedElement.checked = false;
-  }
-  lastClickedElement = event.target;
-}
-
 // ort wo man die todos speichern kann
 
 const todos = [];
@@ -37,8 +12,8 @@ function addTodo() {
     done: false,
     id: Date.now(),
   });
-    input.value = "";
-    input.focus();
+  input.value = "";
+  input.focus();
 }
 
 const addBtn = document.querySelector("#add");
@@ -64,8 +39,14 @@ function render() {
 // function delete
 
 function deleteInput() {
-  const output = document.querySelector("#new-todo");
-  todos.splice("");
+ // todos[0].done = true; // test dummy
+  // über alle Elemente for schleife
+  for (let i = 0; i < todos.length; i++) {
+    // prüfen ob done === true, wenn ja splice() sonnst nichts tun
+    if (todos[i].done === true) {
+      todos.splice(i, 1);
+    }
+  }
 }
 
 // delete button erzeugen
@@ -78,3 +59,30 @@ delBtn.addEventListener("click", (e) => {
   deleteInput();
   render();
 });
+
+let all = document.querySelector("#all");
+let open = document.querySelector("#open");
+let done = document.querySelector("#done");
+
+all.addEventListener("click", control);
+open.addEventListener("click", control);
+done.addEventListener("click", control);
+
+let checkBoxCount = 0;
+
+let lastClickedElement;
+
+function control(event) {
+  if (event.target.checked) {
+    checkBoxCount++;
+  } else {
+    checkBoxCount--;
+  }
+  if (checkBoxCount === 2) {
+    checkBoxCount--;
+    lastClickedElement.checked = false;
+  }
+  lastClickedElement = event.target;
+}
+
+render();
