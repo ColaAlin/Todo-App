@@ -32,7 +32,13 @@ function render() {
   todoList.innerHTML = "";
   for (let i = 0; i < todos.length; i++) {
     const li = document.createElement("li");
-    li.innerText = todos[i].description;
+    // class von html mit javascript verbinden
+    li.className = "ul2";
+    const label = document.createElement("label");
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    li.append(input, label);
+    label.innerText = todos[i].description;
     todoList.appendChild(li);
   }
 }
