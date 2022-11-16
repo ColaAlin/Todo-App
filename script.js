@@ -1,6 +1,18 @@
 // ort wo man die todos speichern kann
 
-const todos = [];
+let todos = [];
+
+function updateLocalStorage() {
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+function getTodos() {
+  if (localStorage.getItem("todos")) {
+    const todosLs = localStorage.getItem("todos");
+    todos = JSON.parse(todosLs);
+  }
+}
+getTodos();
 
 // function für neue todos
 
@@ -14,7 +26,6 @@ function addTodo() {
   });
   input.value = "";
   input.focus();
-  render();
 }
 
 const addBtn = document.querySelector("#add");
@@ -22,6 +33,7 @@ const addBtn = document.querySelector("#add");
 addBtn.addEventListener("click", (event) => {
   // function addTodo ausführen
   addTodo();
+  updateLocalStorage();
   render();
 });
 // text ausgeben
@@ -54,6 +66,7 @@ function deleteInput() {
       todos.splice(i, 1);
     }
   }
+  updateLocalStorage();
   render();
 }
 
@@ -66,6 +79,7 @@ const delBtn = document.querySelector("#btn-delete");
 delBtn.addEventListener("click", (e) => {
   deleteInput();
   render();
+  updateLocalStorage();
 });
 
 let all = document.querySelector("#all");
