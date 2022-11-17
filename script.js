@@ -43,6 +43,7 @@ function render() {
   const todoList = document.querySelector("#li-todo");
   todoList.innerHTML = "";
   for (let i = 0; i < todos.length; i++) {
+    
     const li = document.createElement("li");
     // class von html mit javascript verbinden
     li.className = "li2";
@@ -81,6 +82,8 @@ delBtn.addEventListener("click", (e) => {
   updateLocalStorage();
   render();
 });
+
+// radio buttons
 
 let all = document.querySelector("#all");
 let open = document.querySelector("#open");

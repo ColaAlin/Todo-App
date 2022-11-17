@@ -112,7 +112,6 @@ h2 {
 .li2 {
   list-style: none;
   display: flex;
-  margin-inline-end: auto;
   padding: 5px 10px;
   border-radius: 5px;
   background-color: whitesmoke;
