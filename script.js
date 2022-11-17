@@ -45,7 +45,7 @@ function render() {
   for (let i = 0; i < todos.length; i++) {
     const li = document.createElement("li");
     // class von html mit javascript verbinden
-    li.className = "ul2";
+    li.className = "li2";
     const label = document.createElement("label");
     const input = document.createElement("input");
     input.type = "checkbox";
@@ -78,8 +78,8 @@ const delBtn = document.querySelector("#btn-delete");
 
 delBtn.addEventListener("click", (e) => {
   deleteInput();
-  render();
   updateLocalStorage();
+  render();
 });
 
 let all = document.querySelector("#all");
