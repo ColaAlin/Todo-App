@@ -1,6 +1,13 @@
 // ort wo man die todos speichern kann
 
 let todos = [];
+let currentFilter = "all";
+const filterWrapper = document.querySelector(".filter-items");
+
+filterWrapper.addEventListener("change", (event) => {
+  currentFilter = event.target.id;
+  render();
+});
 
 function updateLocalStorage() {
   localStorage.setItem("todos", JSON.stringify(todos));
@@ -42,18 +49,37 @@ function render() {
   // alles was im input feld ist, ausgeben
   const todoList = document.querySelector("#li-todo");
   todoList.innerHTML = "";
-  for (let i = 0; i < todos.length; i++) {
-    
+  let todoData = todos;
+
+  if (currentFilter === "done") {
+    todoData = todoData.filter((todo) => todo.done === true);
+  } else if (currentFilter === "open") {
+    todoData = todoData.filter((todo) => todo.done === false);
+  }
+  for (let i = 0; i < todoData.length; i++) {
+    const todo = todoData[i];
     const li = document.createElement("li");
+
     // class von html mit javascript verbinden
     li.className = "li2";
+    li.dataset.id = todo.id;
+    li.addEventListener("change", () => updateDone(todo.id));
     const label = document.createElement("label");
     const input = document.createElement("input");
+    if (todo.done === true) {
+      input.checked = "checked";
+    }
     input.type = "checkbox";
     li.append(input, label);
-    label.innerText = todos[i].description;
+    label.innerText = todo.description;
     todoList.appendChild(li);
   }
+}
+
+function updateDone(todoid) {
+  const currentTodo = todos.find((todo) => todo.id === todoid);
+  currentTodo.done = !currentTodo.done;
+  updateLocalStorage();
 }
 
 // function delete
