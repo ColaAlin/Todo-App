@@ -1,6 +1,18 @@
+let todos = [];
+
+function loadTodos() {
+  fetch("http://localhost:4730/todos")
+    .then((res) => res.json())
+    .then((todosFromApi) => {
+      todos = todosFromApi;
+      render();
+    });
+}
+
+loadTodos();
+
 // ort wo man die todos speichern kann
 
-let todos = [];
 let currentFilter = "all";
 const filterWrapper = document.querySelector(".filter-items");
 
